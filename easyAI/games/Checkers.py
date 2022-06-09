@@ -209,7 +209,7 @@ class Checker(TwoPlayerGame):
        win = 0
        lose = -100
        """
-       pass
+       return -100 if self.lose() else 0
 
 if __name__ == "__main__":
     ai = Negamax(1) # The AI will think 13 moves in advance
