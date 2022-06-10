@@ -187,7 +187,7 @@ class Checker(TwoPlayerGame):
         """
         game is over immediately when one player get one of its piece into opponent's territory.
         """
-        pass
+        return (self.possible_moves() == []) or self.lose()
 
     def show(self):
         """
