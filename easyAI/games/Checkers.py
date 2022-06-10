@@ -181,13 +181,13 @@ class Checker(TwoPlayerGame):
         black lose if white piece is in black territory
         white lose if black piece is in black territory
         """
-        pass
+        return self.possible_moves() == []
 
     def is_over(self):
         """
         game is over immediately when one player get one of its piece into opponent's territory.
         """
-        return (self.possible_moves() == []) or self.lose()
+        return self.lose()
 
     def show(self):
         """
