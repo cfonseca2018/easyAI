@@ -174,20 +174,41 @@ class Checker(TwoPlayerGame):
          [W,0,W,0,W,0,W,0]]
         ------
         """
-        pass
+        
+        #if self.current_player == 1:
+            #self.players[0].pos = self.get_piece_pos_from_table(pos)
+        #elif self.current_player == 2:
+            #self.players[1].pos = self.get_piece_pos_from_table(pos)
+            
+        # Set current player position to piece from pos array, offset by one since current player is 1 or 2
+        self.players[self.current_player-1].pos = self.get_piece_pos_from_table(pos) 
+
 
     def lose(self):
         """
         black lose if white piece is in black territory
         white lose if black piece is in black territory
         """
-        return self.possible_moves() == []
+        # Check for black pieces in white territory, if any are found black wins
+        for i,j in self.white_territory:
+            if self.board[i,j] == "B":
+                print("Black Wins!")
+                return True
+            
+        # Check for white pieces in black territory, if any are found white wins
+        for i,j in self.black_territory:
+            if self.board[i,j] == "W":
+                print("White Wins!")
+                return True
+            
+        return False
 
     def is_over(self):
         """
         game is over immediately when one player get one of its piece into opponent's territory.
         """
-        return self.lose()
+        # Checks if they are no possible moves left, or checks if white or black lost.
+        return (self.possible_moves() == []) or self.lose()
 
     def show(self):
         """
