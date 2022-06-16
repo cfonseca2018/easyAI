@@ -1,3 +1,11 @@
+# Project 1: Game playing using easyAI
+# Carlos Fonseca, Renan Queiroz, Ricardo Salinas
+# Introduction to Artificial Intelligence
+# Due Date: 6/17/2022
+# Professor: Dr. Oge Marques
+# Semester: Summer 2022
+
+
 from easyAI import TwoPlayerGame, Human_Player, AI_Player, Negamax
 from easyAI import solve_with_iterative_deepening
 import numpy as np
